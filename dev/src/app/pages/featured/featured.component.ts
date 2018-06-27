@@ -7,7 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedComponent implements OnInit {
 
+  featured = {
+    label: '',
+    id: '',
+    url: ''
+  }
+
+  custom = {
+    url: ''
+  }
+
   constructor() { }
+
+  featuredSave() {
+    console.log(this.featured)
+  }
+
+  customSave() {
+    console.log(this.custom)
+  }
 
   ngOnInit() {
   }

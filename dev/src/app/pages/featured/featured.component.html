@@ -1,1 +1,76 @@
 <h1>Featured</h1>
+<div class="row featured-input">
+  <div class="col-sm-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Label" [(ngModel)]="featured.label">
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="ID" [(ngModel)]="featured.id">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="featured.url">
+      <option selected>Default</option>
+      <option value="1">Custom</option>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <button type="button" class="btn btn-primary" (click)="featuredSave()">Add</button>
+  </div>
+
+  <div class="col-sm-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Label</th>
+          <th scope="col">ID</th>
+          <th scope="col">URL</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Label</td>
+          <td>1234</td>
+          <td>www.default.com</td>
+          <td>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row featured-input">
+  <div class="col-sm-10">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="URL" [(ngModel)]="custom.url">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <button type="button" class="btn btn-primary" (click)="customSave()">Add</button>
+  </div>
+  <div class="col-sm-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">URL</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>www.custom.com</td>
+          <td>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
