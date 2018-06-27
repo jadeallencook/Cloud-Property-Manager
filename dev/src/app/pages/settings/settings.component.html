@@ -1,1 +1,30 @@
 <h1>Settings</h1>
+<div class="row settings-input">
+  <div class="col-sm-12">
+    <div class="input-group social-text">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Facebook</span>
+        </div>
+        <input type="text" class="form-control" placeholder="https://www.facebook.com" [(ngModel)]="links.facebook">
+      </div>
+      <div class="input-group social-text">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Twitter</span>
+        </div>
+        <input type="text" class="form-control" placeholder="https://www.twitter.com" [(ngModel)]="links.twitter">
+      </div>
+      <div class="input-group social-text">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Pinterest</span>
+        </div>
+        <input type="text" class="form-control" placeholder="https://www.pinterest.com" [(ngModel)]="links.pinterest">
+      </div>
+      <div class="input-group social-text">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Instagram</span>
+        </div>
+        <input type="text" class="form-control" placeholder="https://www.instagram.com" [(ngModel)]="links.instagram">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+  </div>
+</div>

@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
+  links = {
+    facebook: '',
+    twitter: '',
+    pinterest: '',
+    instagram: ''
+  }
+
   constructor() { }
+
+  save() {
+    console.log(this.links);
+  }
 
   ngOnInit() {
   }
