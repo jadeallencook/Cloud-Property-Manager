@@ -1,0 +1,28 @@
+div.blogs-input {
+  margin-top: 20px;
+  img {
+    height: 300px;
+    width: 300px;
+  }
+  input.desc {
+    height: 100px;
+  }
+  input {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  button {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+div.blogs-overview {
+  margin-top: 30px;
+  div.col-sm-9 {
+    div {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  }
+}

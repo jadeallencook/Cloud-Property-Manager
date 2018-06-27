@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogsComponent implements OnInit {
 
+  blogs = {
+    title: '',
+    description: '',
+    link: '',
+    image: ''
+  }
+
   constructor() { }
+
+  post() {
+    console.log(this.blogs)
+  }
 
   ngOnInit() {
   }
