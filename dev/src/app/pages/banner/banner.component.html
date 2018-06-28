@@ -1,1 +1,53 @@
 <h1>Banner</h1>
+<div class="row banner-preview">
+  <div class="col-sm-4">
+    <div class="img"></div>
+  </div>
+  <div class="col-sm-8">
+    <div class="col-sm-12 top-text">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Top Text" [(ngModel)]="banner.topText">
+      </div>
+    </div>
+    <div class="col-sm-12 big-text">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Big Text" [(ngModel)]="banner.bigText">
+      </div>
+    </div>
+    <div class="col-sm-12 desc">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Description" [(ngModel)]="banner.description">
+      </div>
+    </div>
+    <div class="col-sm-12 desc">
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control" placeholder="Image" [(ngModel)]="banner.image">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary" (click)="post()">Post</button>
+    </div>
+  </div>
+</div>
+<div class="row banner-input">
+</div>
+<div class="row banner-overview">
+  <div class="col-sm-4">
+        <div class="img"></div>
+  </div>
+  <div class="col-sm-8">
+    <div class="col-sm-12 top-text">
+      Top Text
+    </div>
+    <div class="col-sm-12 big-text">
+      Big Text
+    </div>
+    <div class="col-sm-12 desc">
+      Description
+    </div>
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
+      <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+    </div>
+  </div>
+</div>

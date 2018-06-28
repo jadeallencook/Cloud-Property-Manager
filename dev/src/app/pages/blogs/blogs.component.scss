@@ -1,8 +1,10 @@
 div.blogs-input {
   margin-top: 20px;
-  img {
+  div.img {
     height: 300px;
-    width: 300px;
+    width: 100%;
+    background-image: url(https://picsum.photos/300/300);
+    background-size: cover;
   }
   input.desc {
     height: 100px;

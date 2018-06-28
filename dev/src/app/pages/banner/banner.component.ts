@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
+  banner = {
+    topText: '',
+    bigText: '',
+    description: '',
+    image: ''
+  }
+
   constructor() { }
+
+  post() {
+    console.log(this.banner)
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,44 @@
+div.banner-preview {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  input {
+    margin-bottom: 5px;
+  }
+  div {
+    margin-bottom: 5px;
+  }
+  div.big-text {
+    font-size: 2em;
+  }
+  button {
+    margin-top: 10px;
+  }
+}
+
+div.banner-overview {
+    margin-bottom: 10px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  div {
+    margin-bottom: 5px;
+  }
+  div.big-text {
+    font-size: 2em;
+  }
+  div.desc {
+      margin-bottom: 15px;
+  }
+}
+
+div.img {
+  height: 300px;
+  width: 100%;
+  background-image: url(https://picsum.photos/300/300);
+  background-size: cover;
+}
