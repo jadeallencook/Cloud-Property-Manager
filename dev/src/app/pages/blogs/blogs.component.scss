@@ -1,30 +1,28 @@
 div.blogs-input {
   margin-top: 20px;
-  div.img {
-    height: 300px;
-    width: 100%;
-    background-image: url(https://picsum.photos/300/300);
-    background-size: cover;
-  }
   input.desc {
-    height: 100px;
+    height: 110px;
   }
   input {
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-bottom: 10px;
   }
   button {
     margin-top: 10px;
-    margin-left: 10px;
   }
 }
 
 div.blogs-overview {
   margin-top: 30px;
-  div.col-sm-9 {
+  div.col-sm-8 {
     div {
-      margin-top: 10px;
-      margin-left: 10px;
+      margin-top: 5px;
     }
   }
+}
+
+div.img {
+  height: 300px;
+  width: 100%;
+  background-image: url(https://picsum.photos/300/300);
+  background-size: cover;
 }

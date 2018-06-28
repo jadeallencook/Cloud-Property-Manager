@@ -1,12 +1,12 @@
 <h1>Featured</h1>
 <div class="row featured-input">
   <div class="col-sm-4">
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input type="text" class="form-control" placeholder="Label" [(ngModel)]="featured.label">
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input type="text" class="form-control" placeholder="ID" [(ngModel)]="featured.id">
     </div>
   </div>
@@ -17,7 +17,7 @@
     </select>
   </div>
   <div class="col-sm-2">
-    <button type="button" class="btn btn-primary" (click)="featuredSave()">Add</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="featuredSave()">Add</button>
   </div>
 
   <div class="col-sm-12">
@@ -47,12 +47,12 @@
 
 <div class="row featured-input">
   <div class="col-sm-10">
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input type="text" class="form-control" placeholder="URL" [(ngModel)]="custom.url">
     </div>
   </div>
   <div class="col-sm-2">
-    <button type="button" class="btn btn-primary" (click)="customSave()">Add</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="customSave()">Add</button>
   </div>
   <div class="col-sm-12">
     <table class="table">

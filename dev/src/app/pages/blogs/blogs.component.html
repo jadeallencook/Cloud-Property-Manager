@@ -1,9 +1,9 @@
 <h1>Blogs</h1>
 <div class="row blogs-input">
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <div class="img"></div>
   </div>
-  <div class="col-sm-7">
+  <div class="col-sm-8">
     <div class="col-sm-12">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Title" [(ngModel)]="blogs.title">
@@ -15,12 +15,12 @@
       </div>
     </div>
     <div class="col-sm-12">
-      <div class="input-group">
+      <div class="input-group input-group-sm">
         <input type="text" class="form-control" placeholder="Link" [(ngModel)]="blogs.link">
       </div>
     </div>
     <div class="col-sm-12">
-      <div class="input-group">
+      <div class="input-group input-group-sm">
         <input type="text" class="form-control" placeholder="Image" [(ngModel)]="blogs.image">
       </div>
     </div>
@@ -31,16 +31,16 @@
 </div>
 
 <div class="row blogs-overview">
-  <div class="col-sm-3">
-    <img src="https://picsum.photos/300/300" alt="...">
+  <div class="col-sm-4">
+    <div class="img"></div>
   </div>
-  <div class="col-sm-9">
+  <div class="col-sm-8">
     <div class="col-sm-9">Title</div>
     <div class="col-sm-3">Description</div>
     <div class="col-sm-12"></div>
-      <div class="col-sm-12">
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-primary">Delete</button>
-      </div>
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary">Edit</button>
+      <button type="button" class="btn btn-primary">Delete</button>
+    </div>
   </div>
 </div>
