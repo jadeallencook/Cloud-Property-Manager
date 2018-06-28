@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<h1>Login</h1>
+<div class="row login-input">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.username" required>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.password" required>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+  <button class="btn btn-primary" type="submit" (click)="signIn()">Login</button>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
