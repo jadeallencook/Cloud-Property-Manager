@@ -9,14 +9,16 @@ import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BannerComponent } from './pages/banner/banner.component';
 import { FeaturedComponent } from './pages/featured/featured.component';
 import { NavbarComponent } from './componenets/navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'banner', component: BannerComponent },
   { path: 'featured', component: FeaturedComponent },
-  { path: '**', component: SettingsComponent }
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     BlogsComponent,
     BannerComponent,
     FeaturedComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
