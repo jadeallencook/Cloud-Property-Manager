@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   login = {
-    username: '',
-    password: ''
+    email: '',
+    password: '',
+    error: ''
   }
 
-  constructor() { }
+  constructor(private router: Router) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) this.router.navigate(['/home']);
+    });
+  }
 
   signIn() {
     console.log(this.login)
+    firebase.auth().signInWithEmailAndPassword(this.login.email, this.login.password).then(() => {
+      this.router.navigate(['/settings']);
+    }).catch((error) => {
+      this.login.error = error.message;
+    });
   }
 
   ngOnInit() {
