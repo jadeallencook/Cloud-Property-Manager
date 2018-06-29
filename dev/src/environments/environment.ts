@@ -7,56 +7,56 @@ export const environment = {
   production: false,
   user: {
     banners: [{
-      topText: '',
-      bigText: '',
-      description: '',
-      image: ''
+      topText: 'Visit Northeast Michigan',
+      bigText: 'Find Your Rental',
+      description: 'Perfect Landing Rentals',
+      image: 'images/trees.jpg'
     }, {
-      topText: '',
-      bigText: '',
-      description: '',
-      image: ''
+      topText: 'Welcome to the Sunrise Side!',
+      bigText: 'Beautiful Beaches',
+      description: 'Reserve Early! ',
+      image: 'images/nCJaqgv.jpg'
     }, {
-      topText: '',
-      bigText: '',
-      description: '',
-      image: ''
+      topText: 'Family Friendly Properties',
+      bigText: 'Waterfront Homes ',
+      description: 'Riverfront, Lakefront, Inland Lakes or Residential',
+      image: 'images/waterfall.jpg'
     }],
     blogs: [{
-      title: '',
-      description: '',
-      link: '',
-      image: ''
+      title: '2018 Review to Win contest!',
+      description: "We reached out and 175 of you gave us a review for your experience at our vacation rentals for the 2017 season. This also gave you an entry for a chance to win prizes including 2 free nights on us towards the 2018 season! We're happy to announce the winners of our 2018 review to win contest! Congratulations to the following who have been selected at random from our wheel of gratitude!",
+      link: 'http://perfectlandingrentals.com/browse/',
+      image: 'https://farm5.staticflickr.com/4747/40012331832_bf22f3cbf9_o.png'
     }, {
-      title: '',
-      description: '',
-      link: '',
-      image: ''
+      title: 'Now accepting Reservations for 2018',
+      description: 'Choose from our large inventory',
+      link: 'http://perfectlandingrentals.com/property/#/1452/Penny-Crossings/512-W-Bay-St/East-Tawas',
+      image: 'https://perfectlandingrentals.com/vrp/prop1452_img_0265_1920w.jpg'
     }, {
-      title: '',
-      description: '',
-      link: '',
-      image: ''
+      title: 'Fully furnished Monthly rentals until May 2018!',
+      description: 'Check these out! Need a 3 month rental off season rates!',
+      link: 'http://perfectlandingrentals.com/property/#/1128/Sunrise-Cottage/2010-Lakeview/East-Tawas',
+      image: 'https://perfectlandingrentals.com/vrp/prop1036_2481_640w.jpg'
     }],
     featured: [{
-      label: '',
-      id: '',
+      label: 'Double 07',
+      id: '1457',
       url: ''
     }, {
-      label: '',
-      id: '',
+      label: 'Seas the Day',
+      id: '1461',
       url: ''
     }, {
-      label: '',
-      id: '',
+      label: 'Naples north',
+      id: '1459',
       url: ''
     }],
-    urls: [''],
-    customLinks: {
-      facebook: '',
-      twitter: '',
-      pinterest: '',
-      instagram: ''
+    urls: ['oscodaproperties.com', 'tawasproperties.com'],
+    links: {
+      facebook: 'https://www.facebook.com/perfectlanding.biz.125/',
+      twitter: 'https://www.twitter.com',
+      pinterest: 'https://www.pinterest.com/rentals4you/',
+      instagram: 'https://www.instagram.com/perfectlandingrentals/'
     }
   }
 };
