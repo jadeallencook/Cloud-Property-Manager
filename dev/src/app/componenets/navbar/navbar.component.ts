@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.authenticated = true;
+        this.router.navigate(['/settings']);
       } else {
         this.authenticated = false;
       }
