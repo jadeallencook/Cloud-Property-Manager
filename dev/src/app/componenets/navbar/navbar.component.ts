@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
@@ -10,15 +11,20 @@ export class NavbarComponent implements OnInit {
 
   authenticated:any = false;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.authenticated = firebase.auth().currentUser;
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.authenticated = true;
       } else {
         this.authenticated = false;
       }
+    });
+  }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      this.router.navigate(['/login']);
     });
   }
 

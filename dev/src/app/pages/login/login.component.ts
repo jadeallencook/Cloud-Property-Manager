@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
     if (firebase.auth().currentUser) {
       this.router.navigate(['/settings']);
     }
-
-    console.log(firebase.auth().currentUser);
   }
 
   signIn() {

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">CPM</a>
+    <a class="navbar-brand" routerLink="/login">CPM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,6 +9,7 @@
         <a class="nav-item nav-link" routerLink="/featured">Featured</a>
         <a class="nav-item nav-link" routerLink="/blogs">Blogs</a>
         <a class="nav-item nav-link" routerLink="/settings">Settings</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
       </div>
     </div>
   </nav>
