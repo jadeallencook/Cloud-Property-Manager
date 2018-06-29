@@ -6,9 +6,57 @@
 export const environment = {
   production: false,
   user: {
-    banners: [],
-    blogs: [],
-    featured: [],
-    customLinks: []
+    banners: [{
+      topText: '',
+      bigText: '',
+      description: '',
+      image: ''
+    }, {
+      topText: '',
+      bigText: '',
+      description: '',
+      image: ''
+    }, {
+      topText: '',
+      bigText: '',
+      description: '',
+      image: ''
+    }],
+    blogs: [{
+      title: '',
+      description: '',
+      link: '',
+      image: ''
+    }, {
+      title: '',
+      description: '',
+      link: '',
+      image: ''
+    }, {
+      title: '',
+      description: '',
+      link: '',
+      image: ''
+    }],
+    featured: [{
+      label: '',
+      id: '',
+      url: ''
+    }, {
+      label: '',
+      id: '',
+      url: ''
+    }, {
+      label: '',
+      id: '',
+      url: ''
+    }],
+    urls: [''],
+    customLinks: {
+      facebook: '',
+      twitter: '',
+      pinterest: '',
+      instagram: ''
+    }
   }
 };
