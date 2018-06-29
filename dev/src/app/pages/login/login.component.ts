@@ -9,24 +9,31 @@ import * as firebase from 'firebase';
 })
 export class LoginComponent implements OnInit {
 
-  login = {
-    email: '',
-    password: '',
-    error: ''
-  }
+  email: string = '';
+  password: string = '';
+  error: string = '';
 
   constructor(private router: Router) {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) this.router.navigate(['/home']);
-    });
+    if (firebase.auth().currentUser) {
+      this.router.navigate(['/settings']);
+    }
+
+    console.log(firebase.auth().currentUser);
   }
 
   signIn() {
-    console.log(this.login)
-    firebase.auth().signInWithEmailAndPassword(this.login.email, this.login.password).then(() => {
+    firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
       this.router.navigate(['/settings']);
     }).catch((error) => {
-      this.login.error = error.message;
+      this.error = error.message;
+    });
+  }
+
+  signUp() {
+    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
+      this.signIn();
+    }).catch((error) => {
+      this.error = error.message;
     });
   }
 

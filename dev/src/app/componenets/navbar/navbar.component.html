@@ -4,7 +4,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav" *ngIf="authenticated">
         <a class="nav-item nav-link" routerLink="/banner">Banner</a>
         <a class="nav-item nav-link" routerLink="/featured">Featured</a>
         <a class="nav-item nav-link" routerLink="/blogs">Blogs</a>

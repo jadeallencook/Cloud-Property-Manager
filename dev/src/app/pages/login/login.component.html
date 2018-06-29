@@ -3,23 +3,26 @@
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.email" required>
+      <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="email"
+        required>
     </div>
   </div>
   <div class="col-sm-4"></div>
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.password" required>
+      <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="password"
+        required>
     </div>
     <div class="error">
-      {{login.error}}
+      {{error}}
     </div>
   </div>
   <div class="col-sm-4"></div>
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
-  <button class="btn btn-primary" type="submit" (click)="signIn()">Login</button>
+    <button class="btn btn-primary btn-sm" type="submit" (click)="signIn()">Login</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" (click)="signUp()">Sign Up</button>
   </div>
   <div class="col-sm-4"></div>
 </div>
