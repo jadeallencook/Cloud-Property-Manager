@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-featured',
@@ -10,7 +11,7 @@ export class FeaturedComponent implements OnInit {
   featured = {
     label: '',
     id: '',
-    url: ''
+    url: 'Default'
   }
 
   custom = {
