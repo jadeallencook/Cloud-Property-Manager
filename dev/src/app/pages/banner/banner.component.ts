@@ -15,7 +15,11 @@ export class BannerComponent implements OnInit {
     image: ''
   }
 
-  constructor() { }
+  banners = environment.user.banners;
+
+  constructor() {
+    console.log(environment);
+  }
 
   post() {
     console.log(this.banner)

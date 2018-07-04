@@ -1,6 +1,6 @@
 div.banner-preview {
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   input {
     margin-bottom: 5px;
   }
@@ -16,11 +16,7 @@ div.banner-preview {
 }
 
 div.banner-overview {
-    margin-bottom: 10px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  margin-bottom: 20px;
   div {
     margin-bottom: 5px;
   }
@@ -28,7 +24,7 @@ div.banner-overview {
     font-size: 2em;
   }
   div.desc {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
 

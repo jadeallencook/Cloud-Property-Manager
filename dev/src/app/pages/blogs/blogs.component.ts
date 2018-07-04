@@ -8,17 +8,20 @@ import { environment } from '../../../environments/environment';
 })
 export class BlogsComponent implements OnInit {
 
-  blogs = {
+  blog = {
     title: '',
     description: '',
     link: '',
     image: ''
   }
 
+  blogs = environment.user.blogs;
+  
+
   constructor() { }
 
   post() {
-    console.log(this.blogs)
+    console.log(this.blog)
   }
 
   ngOnInit() {

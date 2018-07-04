@@ -14,9 +14,13 @@ export class FeaturedComponent implements OnInit {
     url: 'Default'
   }
 
-  custom = {
+  feature = environment.user.featured;
+
+  customurls = {
     url: ''
   }
+
+  customurl = environment.user.urls;
 
   constructor() { }
 
@@ -25,7 +29,7 @@ export class FeaturedComponent implements OnInit {
   }
 
   customSave() {
-    console.log(this.custom)
+    console.log(this.customurls)
   }
 
   ngOnInit() {

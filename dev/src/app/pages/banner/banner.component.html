@@ -19,7 +19,7 @@
         <input type="text" class="form-control" placeholder="Description" [(ngModel)]="banner.description">
       </div>
     </div>
-    <div class="col-sm-12 desc">
+    <div class="col-sm-12 image">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Image" [(ngModel)]="banner.image">
       </div>
@@ -31,23 +31,26 @@
 </div>
 <div class="row banner-input">
 </div>
-<div class="row banner-overview">
-  <div class="col-sm-4">
-    <div class="img"></div>
-  </div>
-  <div class="col-sm-8">
-    <div class="col-sm-12 top-text">
-      Top Text
+
+<div class="banner-overview">
+  <div class="row banner" *ngFor="let banner of banners; index as i; first as isFirst">
+    <div class="col-sm-4">
+      <div class="img"></div>
     </div>
-    <div class="col-sm-12 big-text">
-      Big Text
-    </div>
-    <div class="col-sm-12 desc">
-      Description
-    </div>
-    <div class="col-sm-12">
-      <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
-      <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+    <div class="col-sm-8">
+      <div class="col-sm-12 top-text">
+        {{banners[i].topText}}
+      </div>
+      <div class="col-sm-12 big-text">
+          {{banners[i].bigText}}
+      </div>
+      <div class="col-sm-12 desc">
+          {{banners[i].description}}
+      </div>
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+      </div>
     </div>
   </div>
 </div>

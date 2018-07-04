@@ -11,10 +11,10 @@
     </div>
   </div>
   <div class="col-sm-2">
-      <select class="custom-select custom-select-sm mb-3" [(ngModel)]="featured.url">
-          <option selected>Default</option>
-          <option value="1">Custom</option>
-        </select>
+    <select class="custom-select custom-select-sm mb-3" [(ngModel)]="featured.url">
+      <option selected>Default</option>
+      <option value="1">Custom</option>
+    </select>
   </div>
   <div class="col-sm-2">
     <button type="button" class="btn btn-primary btn-sm" (click)="featuredSave()">Add</button>
@@ -31,24 +31,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Label</td>
-          <td>1234</td>
-          <td>www.default.com</td>
-          <td>
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-          </td>
-        </tr>
+        <tr class="featured" *ngFor="let featured of feature; index as i; first as isFirst">
+            <td>{{feature[i].label}}</td>
+            <td>{{feature[i].id}}</td>
+            <td>{{feature[i].url}}</td>
+            <td>
+              <button type="button" class="btn btn-primary">Edit</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<div class="row featured-input">
+<div class="row customurl-input">
   <div class="col-sm-10">
     <div class="input-group input-group-sm">
-      <input type="text" class="form-control" placeholder="URL" [(ngModel)]="custom.url">
+      <input type="text" class="form-control" placeholder="URL" [(ngModel)]="customurls.url">
     </div>
   </div>
   <div class="col-sm-2">
@@ -63,13 +63,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>www.custom.com</td>
-          <td>
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-          </td>
-        </tr>
+        <tr class="customurl" *ngFor="let customurls of customurl; index as i; first as isFirst">
+            <td>{{customurl[i]}}</td>
+            <td>
+              <button type="button" class="btn btn-primary">Edit</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
       </tbody>
     </table>
   </div>
