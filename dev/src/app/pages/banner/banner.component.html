@@ -25,7 +25,9 @@
       </div>
     </div>
     <div class="col-sm-12">
-      <button type="button" class="btn btn-primary" (click)="post()">Post</button>
+      <button type="button" *ngIf="!editor.id && editor.id !== 0" class="btn btn-primary" (click)="post()">Post</button>
+      <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-primary" (click)="post()">Save</button>
+      <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-secondary" (click)="clear()">Clear</button>
     </div>
   </div>
 </div>
@@ -33,23 +35,23 @@
 </div>
 
 <div class="banner-overview">
-  <div class="row banner" *ngFor="let banner of banners; index as i; first as isFirst">
+  <div class="row banner" *ngFor="let banner of banners; index as x">
     <div class="col-sm-4">
       <div class="img"></div>
     </div>
     <div class="col-sm-8">
       <div class="col-sm-12 top-text">
-        {{banners[i].topText}}
+        {{banner.topText}}
       </div>
       <div class="col-sm-12 big-text">
-          {{banners[i].bigText}}
+        {{banner.bigText}}
       </div>
       <div class="col-sm-12 desc">
-          {{banners[i].description}}
+        {{banner.description}}
       </div>
       <div class="col-sm-12">
-        <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
-        <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+        <button type="button" class="btn btn-primary" (click)="edit(x)">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="delete(x)">Delete</button>
       </div>
     </div>
   </div>

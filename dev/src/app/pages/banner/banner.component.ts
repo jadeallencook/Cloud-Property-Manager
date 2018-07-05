@@ -15,14 +15,35 @@ export class BannerComponent implements OnInit {
     image: ''
   }
 
+  editor = {
+    id: null
+  }
+
   banners = environment.user.banners;
 
-  constructor() {
-    console.log(environment);
-  }
+  constructor() { }
 
   post() {
     console.log(this.banner)
+  }
+
+  delete(id) {
+    environment.user.banners.splice(id, 1);
+  }
+
+  clear() {
+    this.editor.id = null;
+    this.banner = {
+      topText: '',
+      bigText: '',
+      description: '',
+      image: ''
+    }
+  }
+
+  edit(id) {
+    this.banner = environment.user.banners[id];
+    this.editor.id = id;
   }
 
   ngOnInit() {

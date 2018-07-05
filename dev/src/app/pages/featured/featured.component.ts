@@ -8,28 +8,39 @@ import { environment } from '../../../environments/environment';
 })
 export class FeaturedComponent implements OnInit {
 
-  featured = {
+  feature = {
     label: '',
     id: '',
-    url: 'Default'
+    url: 'default'
   }
-
-  feature = environment.user.featured;
-
-  customurls = {
-    url: ''
-  }
-
-  customurl = environment.user.urls;
+  url = '';
+  features = environment.user.featured;
+  urls = environment.user.urls;
 
   constructor() { }
 
-  featuredSave() {
-    console.log(this.featured)
+  edit(id, type) {
+    if (type === 'url') this.url = this.urls[id];
+    else if (type === 'feature') this.feature = this.features[id];
   }
 
-  customSave() {
-    console.log(this.customurls)
+  delete(id, type) {
+    if (type === 'url') this.urls.splice(id, 1);
+    else if (type === 'feature') this.features.splice(id, 1);
+  }
+
+  post(type) {
+    if (type === 'url') {
+      this.urls.push(this.url);
+      this.url = '';
+    } else if (type === 'feature') {
+      this.features.push(this.feature);
+      this.feature = {
+        label: '',
+        id: '',
+        url: 'default'
+      }
+    }
   }
 
   ngOnInit() {
