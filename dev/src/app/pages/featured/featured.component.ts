@@ -20,8 +20,13 @@ export class FeaturedComponent implements OnInit {
   constructor() { }
 
   edit(id, type) {
-    if (type === 'url') this.url = this.urls[id];
-    else if (type === 'feature') this.feature = this.features[id];
+    if (type === 'url') {
+      this.url = this.urls[id];
+      this.delete(id, type);
+    } else if (type === 'feature') {
+      this.feature = this.features[id];
+      this.delete(id, type);
+    }
   }
 
   delete(id, type) {
