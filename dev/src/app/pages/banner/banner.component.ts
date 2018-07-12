@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
     topText: '',
     bigText: '',
     description: '',
-    image: ''
+    image: '',
   }
 
   editor = {
@@ -24,7 +24,11 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   post() {
+    if (this.editor.id != null) {
+      environment.user.banners[this.editor.id] = this.banner;
+    } else {
     this.banners.push(this.banner);
+    }
   }
 
   delete(id) {
@@ -44,7 +48,6 @@ export class BannerComponent implements OnInit {
   edit(id) {
     this.banner = environment.user.banners[id];
     this.editor.id = id;
-    this.delete(id);
   }
 
   ngOnInit() {

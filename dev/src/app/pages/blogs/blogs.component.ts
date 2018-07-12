@@ -24,7 +24,11 @@ export class BlogsComponent implements OnInit {
   constructor() { }
 
   post() {
+    if (this.editor.id != null) {
+      environment.user.blogs[this.editor.id] = this.blog;
+    } else {
     this.blogs.push(this.blog);
+    }
   }
 
   delete(id) {
@@ -44,7 +48,6 @@ export class BlogsComponent implements OnInit {
   edit(id) {
     this.blog = environment.user.blogs[id];
     this.editor.id = id;
-    this.delete(id);
   }
 
   ngOnInit() {
