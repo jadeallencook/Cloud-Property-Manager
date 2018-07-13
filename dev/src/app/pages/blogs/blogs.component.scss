@@ -1,10 +1,14 @@
 div.blogs-input {
   margin-top: 20px;
-  input.desc {
-    height: 110px;
+  textarea.desc {
+    height: 50px;
+    margin-bottom: 10px;
   }
   input {
     margin-bottom: 10px;
+  }
+  span {
+    display: block;
   }
   button {
     margin-top: 10px;
