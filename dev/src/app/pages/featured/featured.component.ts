@@ -23,6 +23,7 @@ export class FeaturedComponent implements OnInit {
   constructor() { }
 
   edit(id, type) {
+    window.scrollTo(0, 0);
     this.editor.id = id;
     if (type === 'url') {
       this.url = this.urls[id];

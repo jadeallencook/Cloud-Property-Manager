@@ -15,10 +15,11 @@ export class SettingsComponent implements OnInit {
     instagram: ''
   }
 
-  constructor() { }
+  constructor() {
+    this.links = environment.user.links;
+  }
 
   save() {
-    console.log(this.links);
   }
 
   ngOnInit() {

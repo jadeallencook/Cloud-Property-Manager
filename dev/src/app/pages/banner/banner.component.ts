@@ -73,6 +73,7 @@ export class BannerComponent implements OnInit {
   }
 
   edit(id) {
+    window.scrollTo(0, 0);
     this.banner = environment.user.banners[id];
     this.editor.id = id;
   }

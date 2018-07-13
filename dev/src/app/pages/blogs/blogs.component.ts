@@ -72,6 +72,7 @@ export class BlogsComponent implements OnInit {
   }
 
   edit(id) {
+    window.scrollTo(0, 0);
     this.blog = environment.user.blogs[id];
     this.editor.id = id;
   }
