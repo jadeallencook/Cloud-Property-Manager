@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blogs',
@@ -21,14 +22,12 @@ export class BlogsComponent implements OnInit {
     id: null
   }
 
-  constructor() { }
+  constructor(private _sanitizer: DomSanitizer) {}
 
   post() {
-    if (this.editor.id != null) {
-      environment.user.blogs[this.editor.id] = this.blog;
-    } else {
-    this.blogs.push(this.blog);
-    }
+    if (this.editor.id != null) environment.user.blogs[this.editor.id] = this.blog;
+    else this.blogs.push(this.blog);
+    this.reset();
   }
 
   delete(id) {
@@ -43,6 +42,20 @@ export class BlogsComponent implements OnInit {
       link: '',
       image: ''
     }
+  }
+
+  reset() {
+    this.blog = {
+      title: '',
+      description: '',
+      link: '',
+      image: ''
+    }
+    this.editor.id = null;
+  }
+
+  setBgImg(image) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
   }
 
   edit(id) {
