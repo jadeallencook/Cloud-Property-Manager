@@ -10,6 +10,12 @@ div.banner-preview {
   div.big-text {
     font-size: 2em;
   }
+  span {
+    display: block;
+    color: red;
+    font-style: italic;
+    font-size: 0.75em;
+  }
   button {
     margin-top: 10px;
   }
@@ -33,4 +39,5 @@ div.img {
   width: 100%;
   background-image: url(https://picsum.photos/300/300);
   background-size: cover;
+  background-position: center center;
 }

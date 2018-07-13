@@ -10,17 +10,17 @@ export const environment = {
       topText: 'Visit Northeast Michigan',
       bigText: 'Find Your Rental',
       description: 'Perfect Landing Rentals',
-      image: 'images/trees.jpg'
+      image: 'https://perfectlandingrentals.com/images/trees.jpg'
     }, {
       topText: 'Welcome to the Sunrise Side!',
       bigText: 'Beautiful Beaches',
       description: 'Reserve Early! ',
-      image: 'images/nCJaqgv.jpg'
+      image: 'https://perfectlandingrentals.com/images/nCJaqgv.jpg'
     }, {
       topText: 'Family Friendly Properties',
       bigText: 'Waterfront Homes ',
       description: 'Riverfront, Lakefront, Inland Lakes or Residential',
-      image: 'images/waterfall.jpg'
+      image: 'https://perfectlandingrentals.com/images/waterfall.jpg'
     }],
     blogs: [{
       title: '2018 Review to Win contest!',

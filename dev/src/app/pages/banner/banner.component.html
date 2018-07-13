@@ -1,7 +1,8 @@
 <h1>Banner</h1>
 <div class="row banner-preview">
   <div class="col-sm-4">
-    <div class="img"></div>
+      <div class="img" *ngIf="banner.image.length > 0" [style.background-image]="setBgImg(banner.image)"></div>
+      <div class="img" *ngIf="banner.image.length === 0" [style.background-image]="setBgImg('http://placehold.it/600x400')"></div>
   </div>
   <div class="col-sm-8">
     <div class="col-sm-12 top-text">
@@ -25,6 +26,7 @@
       </div>
     </div>
     <div class="col-sm-12">
+      <span *ngIf="editor.error">{{editor.error}}</span>
       <button type="button" *ngIf="!editor.id && editor.id !== 0" class="btn btn-primary" (click)="post()">Post</button>
       <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-primary" (click)="post()">Save</button>
       <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-secondary" (click)="clear()">Clear</button>
@@ -37,7 +39,7 @@
 <div class="banner-overview">
   <div class="row banner" *ngFor="let banner of banners; index as x">
     <div class="col-sm-4">
-      <div class="img"></div>
+      <div class="img" [style.background-image]="setBgImg(banner.image)"></div>
     </div>
     <div class="col-sm-8">
       <div class="col-sm-12 top-text">
