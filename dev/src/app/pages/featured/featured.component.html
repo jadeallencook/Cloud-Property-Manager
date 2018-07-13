@@ -12,12 +12,13 @@
   </div>
   <div class="col-sm-2">
     <select class="custom-select custom-select-sm mb-3" [(ngModel)]="feature.url">
-      <option selected>Default</option>
+      <option value="default" selected="selected">default</option>
       <option *ngFor="let url of urls" value="{{url}}">{{url}}</option>
     </select>
   </div>
   <div class="col-sm-2">
-    <button type="button" class="btn btn-primary btn-sm" (click)="post('feature')">Add</button>
+    <button type="button" *ngIf="!editor.id || editor.id === 0" class="btn btn-primary btn-sm" (click)="post('feature')">Add</button>
+    <button type="button" *ngIf="editor.id" class="btn btn-primary btn-sm" (click)="post('feature')">Save</button>
   </div>
 
   <div class="col-sm-12">

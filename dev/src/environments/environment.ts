@@ -41,15 +41,15 @@ export const environment = {
     featured: [{
       label: 'Double 07',
       id: '1457',
-      url: ''
+      url: 'default'
     }, {
       label: 'Seas the Day',
       id: '1461',
-      url: ''
+      url: 'default'
     }, {
       label: 'Naples north',
       id: '1459',
-      url: ''
+      url: 'default'
     }],
     urls: ['oscodaproperties.com', 'tawasproperties.com'],
     links: {

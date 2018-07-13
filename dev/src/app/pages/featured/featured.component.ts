@@ -16,16 +16,18 @@ export class FeaturedComponent implements OnInit {
   url = '';
   features = environment.user.featured;
   urls = environment.user.urls;
+  editor = {
+    id: undefined
+  }
 
   constructor() { }
 
   edit(id, type) {
+    this.editor.id = id;
     if (type === 'url') {
       this.url = this.urls[id];
-      this.delete(id, type);
     } else if (type === 'feature') {
       this.feature = this.features[id];
-      this.delete(id, type);
     }
   }
 
@@ -34,18 +36,23 @@ export class FeaturedComponent implements OnInit {
     else if (type === 'feature') this.features.splice(id, 1);
   }
 
-  post(type) {
-    if (type === 'url') {
-      this.urls.push(this.url);
-      this.url = '';
-    } else if (type === 'feature') {
-      this.features.push(this.feature);
-      this.feature = {
-        label: '',
-        id: '',
-        url: 'default'
-      }
+  reset() {
+    this.feature = {
+      label: '',
+      id: '',
+      url: 'default'
     }
+    this.url = '';
+    this.editor.id = undefined;
+  }
+
+  post(type) {
+    if (type === 'url' && !this.editor.id) this.urls.push(this.url);
+    else if (type === 'url') this.urls[this.editor.id] = this.url;
+    else if (type === 'feature' && !this.editor.id) this.features.push(this.feature);
+    else if (type === 'feature') this.features[this.editor.id] = this.feature;
+    else alert('Error saving, please contact the Onflo team!');
+    this.reset();
   }
 
   ngOnInit() {
