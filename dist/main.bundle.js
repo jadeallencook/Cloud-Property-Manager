@@ -234,14 +234,14 @@ var NavbarComponent = /** @class */ (function () {
 /***/ "./src/app/pages/banner/banner.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Banner</h1>\n<div class=\"row banner-preview\">\n  <div class=\"col-sm-4\">\n    <div class=\"img\"></div>\n  </div>\n  <div class=\"col-sm-8\">\n    <div class=\"col-sm-12 top-text\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Top Text\" [(ngModel)]=\"banner.topText\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 big-text\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Big Text\" [(ngModel)]=\"banner.bigText\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 desc\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"banner.description\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 image\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Image\" [(ngModel)]=\"banner.image\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <button type=\"button\" *ngIf=\"!editor.id && editor.id !== 0\" class=\"btn btn-primary\" (click)=\"post()\">Post</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-primary\" (click)=\"post()\">Save</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-secondary\" (click)=\"clear()\">Clear</button>\n    </div>\n  </div>\n</div>\n<div class=\"row banner-input\">\n</div>\n\n<div class=\"banner-overview\">\n  <div class=\"row banner\" *ngFor=\"let banner of banners; index as x\">\n    <div class=\"col-sm-4\">\n      <div class=\"img\"></div>\n    </div>\n    <div class=\"col-sm-8\">\n      <div class=\"col-sm-12 top-text\">\n        {{banner.topText}}\n      </div>\n      <div class=\"col-sm-12 big-text\">\n        {{banner.bigText}}\n      </div>\n      <div class=\"col-sm-12 desc\">\n        {{banner.description}}\n      </div>\n      <div class=\"col-sm-12\">\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x)\">Edit</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"delete(x)\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h1>Banner</h1>\n<div class=\"row banner-preview\">\n  <div class=\"col-sm-4\">\n      <div class=\"img\" *ngIf=\"banner.image.length > 0\" [style.background-image]=\"setBgImg(banner.image)\"></div>\n      <div class=\"img\" *ngIf=\"banner.image.length === 0\" [style.background-image]=\"setBgImg('http://placehold.it/600x400')\"></div>\n  </div>\n  <div class=\"col-sm-8\">\n    <div class=\"col-sm-12 top-text\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Top Text\" [(ngModel)]=\"banner.topText\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 big-text\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Big Text\" [(ngModel)]=\"banner.bigText\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 desc\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"banner.description\">\n      </div>\n    </div>\n    <div class=\"col-sm-12 image\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Image\" [(ngModel)]=\"banner.image\">\n      </div>\n      <span>Need to host an image? <a href=\"https://imgbb.com/\" target=\"_blank\">Click here</a></span>\n    </div>\n    <div class=\"col-sm-12\">\n      <span class=\"error\" *ngIf=\"editor.error\">{{editor.error}}</span>\n      <button type=\"button\" *ngIf=\"!editor.id && editor.id !== 0\" class=\"btn btn-primary\" (click)=\"post()\">Post</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-primary\" (click)=\"post()\">Save</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-secondary\" (click)=\"clear()\">Clear</button>\n    </div>\n  </div>\n</div>\n<div class=\"row banner-input\">\n</div>\n\n<div class=\"banner-overview\">\n  <div class=\"row banner\" *ngFor=\"let banner of banners; index as x\">\n    <div class=\"col-sm-4\">\n      <div class=\"img\" [style.background-image]=\"setBgImg(banner.image)\"></div>\n    </div>\n    <div class=\"col-sm-8\">\n      <div class=\"col-sm-12 top-text\">\n        {{banner.topText}}\n      </div>\n      <div class=\"col-sm-12 big-text\">\n        {{banner.bigText}}\n      </div>\n      <div class=\"col-sm-12 desc\">\n        {{banner.description}}\n      </div>\n      <div class=\"col-sm-12\">\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x)\">Edit</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"delete(x)\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ "./src/app/pages/banner/banner.component.scss":
 /***/ (function(module, exports) {
 
-module.exports = "div.banner-preview {\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  div.banner-preview input {\n    margin-bottom: 5px; }\n  div.banner-preview div {\n    margin-bottom: 5px; }\n  div.banner-preview div.big-text {\n    font-size: 2em; }\n  div.banner-preview button {\n    margin-top: 10px; }\n  div.banner-overview {\n  margin-bottom: 20px; }\n  div.banner-overview div {\n    margin-bottom: 5px; }\n  div.banner-overview div.big-text {\n    font-size: 2em; }\n  div.banner-overview div.desc {\n    margin-bottom: 15px; }\n  div.img {\n  height: 300px;\n  width: 100%;\n  background-image: url(https://picsum.photos/300/300);\n  background-size: cover; }\n"
+module.exports = "div.banner-preview {\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  div.banner-preview input {\n    margin-bottom: 5px; }\n  div.banner-preview div {\n    margin-bottom: 5px; }\n  div.banner-preview div.big-text {\n    font-size: 2em; }\n  div.banner-preview span {\n    display: block; }\n  div.banner-preview span.error {\n    color: red;\n    font-style: italic;\n    font-size: 0.75em; }\n  div.banner-preview button {\n    margin-top: 10px; }\n  div.banner-overview {\n  margin-bottom: 20px; }\n  div.banner-overview div {\n    margin-bottom: 5px; }\n  div.banner-overview div.big-text {\n    font-size: 2em; }\n  div.banner-overview div.desc {\n    margin-bottom: 15px; }\n  div.img {\n  height: 300px;\n  width: 100%;\n  background-image: url(https://picsum.photos/300/300);\n  background-size: cover;\n  background-position: center center; }\n"
 
 /***/ }),
 
@@ -252,6 +252,7 @@ module.exports = "div.banner-preview {\n  margin-top: 10px;\n  margin-bottom: 10
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BannerComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,8 +264,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var BannerComponent = /** @class */ (function () {
-    function BannerComponent() {
+    function BannerComponent(_sanitizer) {
+        this._sanitizer = _sanitizer;
         this.banner = {
             topText: '',
             bigText: '',
@@ -272,20 +275,47 @@ var BannerComponent = /** @class */ (function () {
             image: '',
         };
         this.editor = {
-            id: null
+            id: null,
+            error: ''
         };
         this.banners = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.banners;
     }
     BannerComponent.prototype.post = function () {
-        if (this.editor.id != null) {
-            __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.banners[this.editor.id] = this.banner;
+        var _this = this;
+        var test = true;
+        Object.keys(this.banner).forEach(function (key) {
+            if (_this.banner[key].length === 0)
+                test = false;
+        });
+        if (test) {
+            if (this.editor.id != null)
+                __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.banners[this.editor.id] = this.banner;
+            else
+                this.banners.push(this.banner);
+            this.reset();
         }
         else {
-            this.banners.push(this.banner);
+            this.editor.error = 'Looks like you\'re missing something...';
+            var report = setTimeout(function () {
+                _this.editor.error = '';
+                clearTimeout(report);
+            }, 2000);
         }
     };
     BannerComponent.prototype.delete = function (id) {
         __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.banners.splice(id, 1);
+    };
+    BannerComponent.prototype.reset = function () {
+        this.banner = {
+            topText: '',
+            bigText: '',
+            description: '',
+            image: '',
+        };
+        this.editor.id = null;
+    };
+    BannerComponent.prototype.setBgImg = function (image) {
+        return this._sanitizer.bypassSecurityTrustStyle("url(" + image + ")");
     };
     BannerComponent.prototype.clear = function () {
         this.editor.id = null;
@@ -297,6 +327,7 @@ var BannerComponent = /** @class */ (function () {
         };
     };
     BannerComponent.prototype.edit = function (id) {
+        window.scrollTo(0, 0);
         this.banner = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.banners[id];
         this.editor.id = id;
     };
@@ -308,7 +339,7 @@ var BannerComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/pages/banner/banner.component.html"),
             styles: [__webpack_require__("./src/app/pages/banner/banner.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["b" /* DomSanitizer */]])
     ], BannerComponent);
     return BannerComponent;
 }());
@@ -320,14 +351,14 @@ var BannerComponent = /** @class */ (function () {
 /***/ "./src/app/pages/blogs/blogs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blogs</h1>\n<div class=\"row blogs-input\">\n  <div class=\"col-sm-4\">\n    <div class=\"img\"></div>\n  </div>\n  <div class=\"col-sm-8\">\n    <div class=\"col-sm-12\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Title\" [(ngModel)]=\"blog.title\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control desc\" placeholder=\"Description\" [(ngModel)]=\"blog.description\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group input-group-sm\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Link\" [(ngModel)]=\"blog.link\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group input-group-sm\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Image\" [(ngModel)]=\"blog.image\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <button type=\"button\" *ngIf=\"!editor.id && editor.id !== 0\" class=\"btn btn-primary\" (click)=\"post()\">Post</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-primary\" (click)=\"post()\">Save</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-secondary\" (click)=\"clear()\">Clear</button>\n    </div>\n  </div>\n</div>\n\n<div class=\"blogs-overview\">\n  <div class=\"row blog\" *ngFor=\"let blog of blogs; index as x\">\n    <div class=\"col-sm-4\">\n      <div class=\"img\"></div>\n    </div>\n    <div class=\"col-sm-8\">\n      <div class=\"col-sm-12 title\">{{blogs[x].title}}</div>\n      <div class=\"col-sm-12 desc\">{{blogs[x].description}}</div>\n      <div class=\"col-sm-12\"></div>\n      <div class=\"col-sm-12\">\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x)\">Edit</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"delete(x)\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h1>Blogs</h1>\n<div class=\"row blogs-input\">\n  <div class=\"col-sm-4\">\n    <div class=\"img\" *ngIf=\"blog.image.length > 0\" [style.background-image]=\"setBgImg(blog.image)\"></div>\n    <div class=\"img\" *ngIf=\"blog.image.length === 0\" [style.background-image]=\"setBgImg('http://placehold.it/600x400')\"></div>\n  </div>\n  <div class=\"col-sm-8\">\n    <div class=\"col-sm-12\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Title\" [(ngModel)]=\"blog.title\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group\">\n        <textarea type=\"text\" class=\"form-control desc\" placeholder=\"Description\" [(ngModel)]=\"blog.description\"></textarea>\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group input-group-sm\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Link\" [(ngModel)]=\"blog.link\">\n      </div>\n    </div>\n    <div class=\"col-sm-12\">\n      <div class=\"input-group input-group-sm\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Image\" [(ngModel)]=\"blog.image\">\n      </div>\n      <span>Need to host an image? <a href=\"https://imgbb.com/\" target=\"_blank\">Click here</a></span>\n    </div>\n    <div class=\"col-sm-12\">\n      <span class=\"error\" *ngIf=\"editor.error\">{{editor.error}}</span>\n      <button type=\"button\" *ngIf=\"!editor.id && editor.id !== 0\" class=\"btn btn-primary\" (click)=\"post()\">Post</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-primary\" (click)=\"post()\">Save</button>\n      <button type=\"button\" *ngIf=\"editor.id || editor.id === 0\" class=\"btn btn-secondary\" (click)=\"clear()\">Clear</button>\n    </div>\n  </div>\n</div>\n\n<div class=\"blogs-overview\">\n  <div class=\"row blog\" *ngFor=\"let blog of blogs; index as x\">\n    <div class=\"col-sm-4\">\n      <div class=\"img\" [style.background-image]=\"setBgImg(blog.image)\"></div>\n    </div>\n    <div class=\"col-sm-8\">\n      <div class=\"col-sm-12 title\">{{blog.title}}</div>\n      <div class=\"col-sm-12 desc\">{{blog.description}}</div>\n      <div class=\"col-sm-12\"></div>\n      <div class=\"col-sm-12\">\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x)\">Edit</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"delete(x)\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ "./src/app/pages/blogs/blogs.component.scss":
 /***/ (function(module, exports) {
 
-module.exports = "div.blogs-input {\n  margin-top: 20px; }\n  div.blogs-input input.desc {\n    height: 110px; }\n  div.blogs-input input {\n    margin-bottom: 10px; }\n  div.blogs-input button {\n    margin-top: 10px; }\n  div.blogs-overview {\n  margin-top: 20px; }\n  div.blogs-overview div.blog {\n    margin-top: 20px; }\n  div.blogs-overview div.blog div.col-sm-8 div {\n      margin-top: 5px; }\n  div.img {\n  height: 300px;\n  width: 100%;\n  background-image: url(https://picsum.photos/300/300);\n  background-size: cover; }\n"
+module.exports = "div.blogs-input {\n  margin-top: 20px; }\n  div.blogs-input textarea.desc {\n    height: 50px;\n    margin-bottom: 10px; }\n  div.blogs-input input {\n    margin-bottom: 10px; }\n  div.blogs-input span {\n    display: block; }\n  div.blogs-input span.error {\n    color: red;\n    font-style: italic;\n    font-size: 0.75em; }\n  div.blogs-input button {\n    margin-top: 10px; }\n  div.blogs-overview {\n  margin-top: 20px; }\n  div.blogs-overview div.blog {\n    margin-top: 20px; }\n  div.blogs-overview div.blog div.col-sm-8 div {\n      margin-top: 5px; }\n  div.img {\n  height: 300px;\n  width: 100%;\n  background-image: url(https://picsum.photos/300/300);\n  background-size: cover;\n  background-position: center center; }\n"
 
 /***/ }),
 
@@ -338,6 +369,7 @@ module.exports = "div.blogs-input {\n  margin-top: 20px; }\n  div.blogs-input in
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,8 +381,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var BlogsComponent = /** @class */ (function () {
-    function BlogsComponent() {
+    function BlogsComponent(_sanitizer) {
+        this._sanitizer = _sanitizer;
         this.blog = {
             title: '',
             description: '',
@@ -359,15 +393,30 @@ var BlogsComponent = /** @class */ (function () {
         };
         this.blogs = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.blogs;
         this.editor = {
-            id: null
+            id: null,
+            error: ''
         };
     }
     BlogsComponent.prototype.post = function () {
-        if (this.editor.id != null) {
-            __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.blogs[this.editor.id] = this.blog;
+        var _this = this;
+        var test = true;
+        Object.keys(this.blog).forEach(function (key) {
+            if (_this.blog[key].length === 0)
+                test = false;
+        });
+        if (test) {
+            if (this.editor.id != null)
+                __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.blogs[this.editor.id] = this.blog;
+            else
+                this.blogs.push(this.blog);
+            this.reset();
         }
         else {
-            this.blogs.push(this.blog);
+            this.editor.error = 'Looks like you\'re missing something...';
+            var report = setTimeout(function () {
+                _this.editor.error = '';
+                clearTimeout(report);
+            }, 2000);
         }
     };
     BlogsComponent.prototype.delete = function (id) {
@@ -382,7 +431,20 @@ var BlogsComponent = /** @class */ (function () {
             image: ''
         };
     };
+    BlogsComponent.prototype.reset = function () {
+        this.blog = {
+            title: '',
+            description: '',
+            link: '',
+            image: ''
+        };
+        this.editor.id = null;
+    };
+    BlogsComponent.prototype.setBgImg = function (image) {
+        return this._sanitizer.bypassSecurityTrustStyle("url(" + image + ")");
+    };
     BlogsComponent.prototype.edit = function (id) {
+        window.scrollTo(0, 0);
         this.blog = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.blogs[id];
         this.editor.id = id;
     };
@@ -394,7 +456,7 @@ var BlogsComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/pages/blogs/blogs.component.html"),
             styles: [__webpack_require__("./src/app/pages/blogs/blogs.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["b" /* DomSanitizer */]])
     ], BlogsComponent);
     return BlogsComponent;
 }());
@@ -406,7 +468,7 @@ var BlogsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/featured/featured.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Featured</h1>\n<div class=\"row featured-input\">\n  <div class=\"col-sm-4\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Label\" [(ngModel)]=\"feature.label\">\n    </div>\n  </div>\n  <div class=\"col-sm-4\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"feature.id\">\n    </div>\n  </div>\n  <div class=\"col-sm-2\">\n    <select class=\"custom-select custom-select-sm mb-3\" [(ngModel)]=\"feature.url\">\n      <option selected>Default</option>\n      <option *ngFor=\"let url of urls\" value=\"{{url}}\">{{url}}</option>\n    </select>\n  </div>\n  <div class=\"col-sm-2\">\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"post('feature')\">Add</button>\n  </div>\n\n  <div class=\"col-sm-12\">\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th scope=\"col\">Label</th>\n          <th scope=\"col\">ID</th>\n          <th scope=\"col\">URL</th>\n          <th scope=\"col\">Options</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr class=\"featured\" *ngFor=\"let feature of features; index as x;\">\n            <td>{{feature.label}}</td>\n            <td>{{feature.id}}</td>\n            <td>{{feature.url}}</td>\n            <td>\n              <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x, 'feature')\">Edit</button>\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"delete(x, 'feature')\">Delete</button>\n            </td>\n          </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n\n<div class=\"row customurl-input\">\n  <div class=\"col-sm-10\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"URL\" [(ngModel)]=\"url\">\n    </div>\n  </div>\n  <div class=\"col-sm-2\">\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"post('url')\">Add</button>\n  </div>\n  <div class=\"col-sm-12\">\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th scope=\"col\">URL</th>\n          <th scope=\"col\">Options</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr class=\"customurl\" *ngFor=\"let url of urls; index as x;\">\n            <td>{{url}}</td>\n            <td>\n              <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x, 'url')\">Edit</button>\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"delete(x, 'url')\">Delete</button>\n            </td>\n          </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<h1>Featured</h1>\n<div class=\"row featured-input\">\n  <div class=\"col-sm-4\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Label\" [(ngModel)]=\"feature.label\">\n    </div>\n  </div>\n  <div class=\"col-sm-4\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"feature.id\">\n    </div>\n  </div>\n  <div class=\"col-sm-2\">\n    <select class=\"custom-select custom-select-sm mb-3\" [(ngModel)]=\"feature.url\">\n      <option value=\"default\" selected=\"selected\">default</option>\n      <option *ngFor=\"let url of urls\" value=\"{{url}}\">{{url}}</option>\n    </select>\n  </div>\n  <div class=\"col-sm-2\">\n    <button type=\"button\" *ngIf=\"!editor.id || editor.id === 0\" class=\"btn btn-primary btn-sm\" (click)=\"post('feature')\">Add</button>\n    <button type=\"button\" *ngIf=\"editor.id\" class=\"btn btn-primary btn-sm\" (click)=\"post('feature')\">Save</button>\n  </div>\n\n  <div class=\"col-sm-12\">\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th scope=\"col\">Label</th>\n          <th scope=\"col\">ID</th>\n          <th scope=\"col\">URL</th>\n          <th scope=\"col\">Options</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr class=\"featured\" *ngFor=\"let feature of features; index as x;\">\n            <td>{{feature.label}}</td>\n            <td>{{feature.id}}</td>\n            <td>{{feature.url}}</td>\n            <td>\n              <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x, 'feature')\">Edit</button>\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"delete(x, 'feature')\">Delete</button>\n            </td>\n          </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n\n<div class=\"row customurl-input\">\n  <div class=\"col-sm-10\">\n    <div class=\"input-group input-group-sm\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"URL\" [(ngModel)]=\"url\">\n    </div>\n  </div>\n  <div class=\"col-sm-2\">\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"post('url')\">Add</button>\n  </div>\n  <div class=\"col-sm-12\">\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th scope=\"col\">URL</th>\n          <th scope=\"col\">Options</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr class=\"customurl\" *ngFor=\"let url of urls; index as x;\">\n            <td>{{url}}</td>\n            <td>\n              <button type=\"button\" class=\"btn btn-primary\" (click)=\"edit(x, 'url')\">Edit</button>\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"delete(x, 'url')\">Delete</button>\n            </td>\n          </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -445,15 +507,18 @@ var FeaturedComponent = /** @class */ (function () {
         this.url = '';
         this.features = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.featured;
         this.urls = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.urls;
+        this.editor = {
+            id: undefined
+        };
     }
     FeaturedComponent.prototype.edit = function (id, type) {
+        window.scrollTo(0, 0);
+        this.editor.id = id;
         if (type === 'url') {
             this.url = this.urls[id];
-            this.delete(id, type);
         }
         else if (type === 'feature') {
             this.feature = this.features[id];
-            this.delete(id, type);
         }
     };
     FeaturedComponent.prototype.delete = function (id, type) {
@@ -462,19 +527,27 @@ var FeaturedComponent = /** @class */ (function () {
         else if (type === 'feature')
             this.features.splice(id, 1);
     };
+    FeaturedComponent.prototype.reset = function () {
+        this.feature = {
+            label: '',
+            id: '',
+            url: 'default'
+        };
+        this.url = '';
+        this.editor.id = undefined;
+    };
     FeaturedComponent.prototype.post = function (type) {
-        if (type === 'url') {
+        if (type === 'url' && !this.editor.id)
             this.urls.push(this.url);
-            this.url = '';
-        }
-        else if (type === 'feature') {
+        else if (type === 'url')
+            this.urls[this.editor.id] = this.url;
+        else if (type === 'feature' && !this.editor.id)
             this.features.push(this.feature);
-            this.feature = {
-                label: '',
-                id: '',
-                url: 'default'
-            };
-        }
+        else if (type === 'feature')
+            this.features[this.editor.id] = this.feature;
+        else
+            alert('Error saving, please contact the Onflo team!');
+        this.reset();
     };
     FeaturedComponent.prototype.ngOnInit = function () {
     };
@@ -591,6 +664,7 @@ module.exports = "div.settings-input {\n  margin-top: 20px; }\n  div.settings-in
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -601,6 +675,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var SettingsComponent = /** @class */ (function () {
     function SettingsComponent() {
         this.links = {
@@ -609,9 +684,9 @@ var SettingsComponent = /** @class */ (function () {
             pinterest: '',
             instagram: ''
         };
+        this.links = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].user.links;
     }
     SettingsComponent.prototype.save = function () {
-        console.log(this.links);
     };
     SettingsComponent.prototype.ngOnInit = function () {
     };
@@ -646,17 +721,17 @@ var environment = {
                 topText: 'Visit Northeast Michigan',
                 bigText: 'Find Your Rental',
                 description: 'Perfect Landing Rentals',
-                image: 'images/trees.jpg'
+                image: 'https://perfectlandingrentals.com/images/trees.jpg'
             }, {
                 topText: 'Welcome to the Sunrise Side!',
                 bigText: 'Beautiful Beaches',
                 description: 'Reserve Early! ',
-                image: 'images/nCJaqgv.jpg'
+                image: 'https://perfectlandingrentals.com/images/nCJaqgv.jpg'
             }, {
                 topText: 'Family Friendly Properties',
                 bigText: 'Waterfront Homes ',
                 description: 'Riverfront, Lakefront, Inland Lakes or Residential',
-                image: 'images/waterfall.jpg'
+                image: 'https://perfectlandingrentals.com/images/waterfall.jpg'
             }],
         blogs: [{
                 title: '2018 Review to Win contest!',
@@ -677,15 +752,15 @@ var environment = {
         featured: [{
                 label: 'Double 07',
                 id: '1457',
-                url: ''
+                url: 'default'
             }, {
                 label: 'Seas the Day',
                 id: '1461',
-                url: ''
+                url: 'default'
             }, {
                 label: 'Naples north',
                 id: '1459',
-                url: ''
+                url: 'default'
             }],
         urls: ['oscodaproperties.com', 'tawasproperties.com'],
         links: {
