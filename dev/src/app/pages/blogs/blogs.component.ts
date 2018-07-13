@@ -19,15 +19,28 @@ export class BlogsComponent implements OnInit {
   blogs = environment.user.blogs;
 
   editor = {
-    id: null
+    id: null,
+    error: ''
   }
 
-  constructor(private _sanitizer: DomSanitizer) {}
+  constructor(private _sanitizer: DomSanitizer) { }
 
   post() {
-    if (this.editor.id != null) environment.user.blogs[this.editor.id] = this.blog;
-    else this.blogs.push(this.blog);
-    this.reset();
+    var test = true;
+    Object.keys(this.blog).forEach(key => {
+      if (this.blog[key].length === 0) test = false;
+    });
+    if (test) {
+      if (this.editor.id != null) environment.user.blogs[this.editor.id] = this.blog;
+      else this.blogs.push(this.blog);
+      this.reset();
+    } else {
+      this.editor.error = 'Looks like you\'re missing something...';
+      var report = setTimeout(() => {
+        this.editor.error = '';
+        clearTimeout(report);
+      }, 2000);
+    }
   }
 
   delete(id) {

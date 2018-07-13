@@ -24,9 +24,10 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Image" [(ngModel)]="banner.image">
       </div>
+      <span>Need to host an image? <a href="https://imgbb.com/" target="_blank">Click here</a></span>
     </div>
     <div class="col-sm-12">
-      <span *ngIf="editor.error">{{editor.error}}</span>
+      <span class="error" *ngIf="editor.error">{{editor.error}}</span>
       <button type="button" *ngIf="!editor.id && editor.id !== 0" class="btn btn-primary" (click)="post()">Post</button>
       <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-primary" (click)="post()">Save</button>
       <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-secondary" (click)="clear()">Clear</button>
