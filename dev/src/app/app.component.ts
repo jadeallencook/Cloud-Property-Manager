@@ -9,6 +9,9 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  page: string = null;
+
   constructor(private router: Router) {
     var config = {
       apiKey: "AIzaSyCuI7szdieP9IwD8ZwHOoFDE13-o0Jza5o",
@@ -30,6 +33,15 @@ export class AppComponent {
           else environment.user = snapshot.val();
         });
         this.router.navigate(['/welcome']);
+      }
+    });
+    this.router.events.subscribe((val: any) => {
+      let uid = null;
+      if (firebase.auth().currentUser) uid = firebase.auth().currentUser.uid;
+      if (uid && val.url && this.page !== val.url) {
+        firebase.database().ref('/users/' + uid).once('value').then((snapshot) => {
+          environment.user = snapshot.val();
+        });
       }
     });
   }

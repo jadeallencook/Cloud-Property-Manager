@@ -57,6 +57,7 @@ export class BannerComponent implements OnInit {
       image: '',
     }
     this.editor.id = null;
+    this.banners = environment.user.banners;
   }
 
   setBgImg(image) {

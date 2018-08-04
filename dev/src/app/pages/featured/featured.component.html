@@ -17,8 +17,8 @@
     </select>
   </div>
   <div class="col-sm-2">
-    <button type="button" *ngIf="!editor.id || editor.id === 0" class="btn btn-primary btn-sm" (click)="post('feature')">Add</button>
-    <button type="button" *ngIf="editor.id" class="btn btn-primary btn-sm" (click)="post('feature')">Save</button>
+    <button type="button" *ngIf="!editor.id && editor.id !== 0" class="btn btn-primary btn-sm" (click)="post('feature')">Add</button>
+    <button type="button" *ngIf="editor.id || editor.id === 0" class="btn btn-primary btn-sm" (click)="post('feature')">Save</button>
   </div>
 
   <div class="col-sm-12">

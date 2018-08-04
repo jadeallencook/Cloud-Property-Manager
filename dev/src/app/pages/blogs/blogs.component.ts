@@ -35,6 +35,7 @@ export class BlogsComponent implements OnInit {
       if (this.editor.id != null) environment.user.blogs[this.editor.id] = this.blog;
       else this.blogs.push(this.blog);
       this.saveUserData.now();
+      this.blogs = environment.user.blogs;
       this.reset();
     } else {
       this.editor.error = 'Looks like you\'re missing something...';
