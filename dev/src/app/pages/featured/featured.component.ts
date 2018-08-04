@@ -64,12 +64,12 @@ export class FeaturedComponent implements OnInit {
     // gen array for first push
     if (type === 'url' && !this.urls) this.urls = [];
     if (type === 'feature' && !this.features) this.features = [];
-    // save logic
-    if (type === 'url' && this.editor.id.url !== 0 && !this.editor.id) this.urls.push(this.url);
-    else if (type === 'url') this.urls[this.editor.id.url] = this.url;
-    else if (type === 'feature' && this.editor.id.feature !== 0 && !this.editor.id) this.features.push(this.feature);
-    else if (type === 'feature') this.features[this.editor.id.feature] = this.feature;
-    else alert('Error saving, please contact the Onflo team!');
+    // url save logic
+    if (type === 'url' && this.editor.id.url || this.editor.id.url === 0) this.urls[this.editor.id.url] = this.url;
+    else if (type === 'url' && this.editor.id.url !== 0 && !this.editor.id.url) this.urls.push(this.url);
+    // feature save logic
+    if (type === 'feature' && this.editor.id.feature || this.editor.id.feature === 0) this.features[this.editor.id.feature] = this.feature;
+    else if (type === 'feature' && this.editor.id.feature !== 0 && !this.editor.id.feature) this.features.push(this.feature);
     // update for fb
     if (this.urls) environment.user.urls = this.urls;
     if (this.features) environment.user.featured = this.features;
