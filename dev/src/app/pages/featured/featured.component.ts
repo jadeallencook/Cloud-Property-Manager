@@ -18,7 +18,10 @@ export class FeaturedComponent implements OnInit {
   features = environment.user.featured;
   urls = environment.user.urls;
   editor = {
-    id: undefined
+    id: {
+      url: undefined,
+      feature: undefined
+    }
   }
 
   constructor(private saveUserData: SaveUserDataService) {
@@ -26,9 +29,13 @@ export class FeaturedComponent implements OnInit {
 
   edit(id, type) {
     window.scrollTo(0, 0);
-    this.editor.id = id;
-    if (type === 'url') this.url = this.urls[id];
-    else if (type === 'feature') this.feature = this.features[id];
+    if (type === 'url') {
+      this.editor.id.url = id;
+      this.url = this.urls[id];
+    } else if (type === 'feature') {
+      this.editor.id.feature = id;
+      this.feature = this.features[id];
+    }
   }
 
   delete(id, type) {
@@ -47,7 +54,10 @@ export class FeaturedComponent implements OnInit {
       url: 'default'
     }
     this.url = '';
-    this.editor.id = undefined;
+    this.editor.id = {
+        url: undefined,
+        feature: undefined
+      }
   }
 
   post(type) {
@@ -55,10 +65,10 @@ export class FeaturedComponent implements OnInit {
     if (type === 'url' && !this.urls) this.urls = [];
     if (type === 'feature' && !this.features) this.features = [];
     // save logic
-    if (type === 'url' && this.editor.id !== 0 && !this.editor.id) this.urls.push(this.url);
-    else if (type === 'url') this.urls[this.editor.id] = this.url;
-    else if (type === 'feature' && this.editor.id !== 0 && !this.editor.id) this.features.push(this.feature);
-    else if (type === 'feature') this.features[this.editor.id] = this.feature;
+    if (type === 'url' && this.editor.id.url !== 0 && !this.editor.id) this.urls.push(this.url);
+    else if (type === 'url') this.urls[this.editor.id.url] = this.url;
+    else if (type === 'feature' && this.editor.id.feature !== 0 && !this.editor.id) this.features.push(this.feature);
+    else if (type === 'feature') this.features[this.editor.id.feature] = this.feature;
     else alert('Error saving, please contact the Onflo team!');
     // update for fb
     if (this.urls) environment.user.urls = this.urls;
