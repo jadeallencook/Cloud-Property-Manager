@@ -28,8 +28,8 @@ export class AppComponent {
         ref.on('value', (snapshot) => {
           if (!snapshot.val()) ref.set(environment.user);
           else environment.user = snapshot.val();
-          console.log(environment.user);
         });
+        this.router.navigate(['/welcome']);
       }
     });
   }

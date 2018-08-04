@@ -6,7 +6,10 @@ import * as firebase from 'firebase';
 export class SaveUserDataService {
 
   constructor() {
-    if (firebase.auth().currentUser.uid) {
+  }
+
+  now() {
+    if (firebase.auth().currentUser && firebase.auth().currentUser.uid) {
       const uid = firebase.auth().currentUser.uid;
       firebase.database().ref('users/' + uid).set(environment.user).then(() => {
         console.log('Save successful for user: ' + environment.userUID);

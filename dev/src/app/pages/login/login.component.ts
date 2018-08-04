@@ -14,9 +14,7 @@ export class LoginComponent implements OnInit {
   error: string = '';
 
   constructor(private router: Router) {
-    if (firebase.auth().currentUser) {
-      this.router.navigate(['/welcome']);
-    }
+    if (firebase.auth().currentUser) this.router.navigate(['/welcome']);
   }
 
   signIn() {

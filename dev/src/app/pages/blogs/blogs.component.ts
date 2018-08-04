@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SaveUserDataService } from '../../services/save-user-data.service';
 
 @Component({
   selector: 'app-blogs',
@@ -23,7 +24,7 @@ export class BlogsComponent implements OnInit {
     error: ''
   }
 
-  constructor(private _sanitizer: DomSanitizer) { }
+  constructor(private _sanitizer: DomSanitizer, private saveUserData: SaveUserDataService) { }
 
   post() {
     var test = true;
@@ -33,6 +34,7 @@ export class BlogsComponent implements OnInit {
     if (test) {
       if (this.editor.id != null) environment.user.blogs[this.editor.id] = this.blog;
       else this.blogs.push(this.blog);
+      this.saveUserData.now();
       this.reset();
     } else {
       this.editor.error = 'Looks like you\'re missing something...';

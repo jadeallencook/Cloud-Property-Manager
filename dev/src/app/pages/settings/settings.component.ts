@@ -16,13 +16,13 @@ export class SettingsComponent implements OnInit {
     instagram: ''
   }
 
-  constructor() {
+  constructor(private saveUserData: SaveUserDataService) {
     this.links = environment.user.links;
   }
 
   save() {
     environment.user.links = this.links;
-    new SaveUserDataService;
+    this.saveUserData.now();
   }
 
   ngOnInit() {

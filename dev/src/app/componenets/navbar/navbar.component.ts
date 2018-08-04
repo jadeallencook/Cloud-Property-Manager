@@ -14,12 +14,8 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { 
     this.authenticated = firebase.auth().currentUser;
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.authenticated = true;
-        this.router.navigate(['/settings']);
-      } else {
-        this.authenticated = false;
-      }
+      if (user) this.authenticated = true;
+      else this.authenticated = false;
     });
   }
 

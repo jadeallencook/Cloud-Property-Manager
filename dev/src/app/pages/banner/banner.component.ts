@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
-import { forEach } from '../../../../node_modules/@angular/router/src/utils/collection';
+import { SaveUserDataService } from '../../services/save-user-data.service';
 
 @Component({
   selector: 'app-banner',
@@ -24,7 +24,7 @@ export class BannerComponent implements OnInit {
 
   banners = environment.user.banners;
 
-  constructor(private _sanitizer: DomSanitizer) { }
+  constructor(private _sanitizer: DomSanitizer, private saveUserData: SaveUserDataService) { }
 
   post() {
     var test = true;
@@ -34,6 +34,7 @@ export class BannerComponent implements OnInit {
     if (test){
       if (this.editor.id != null) environment.user.banners[this.editor.id] = this.banner;
       else this.banners.push(this.banner);
+      this.saveUserData.now();
       this.reset();
     } else {
       this.editor.error = 'Looks like you\'re missing something...';
