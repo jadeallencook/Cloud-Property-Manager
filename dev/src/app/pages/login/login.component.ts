@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) {
     if (firebase.auth().currentUser) {
-      this.router.navigate(['/settings']);
+      this.router.navigate(['/welcome']);
     }
   }
 
   signIn() {
     firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
-      this.router.navigate(['/settings']);
+      this.router.navigate(['/welcome']);
     }).catch((error) => {
       this.error = error.message;
     });

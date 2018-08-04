@@ -10,6 +10,9 @@ import { BannerComponent } from './pages/banner/banner.component';
 import { FeaturedComponent } from './pages/featured/featured.component';
 import { NavbarComponent } from './componenets/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SaveUserDataService } from './services/save-user-data.service';
+import { UpdateUserEnvironmentService } from './services/update-user-environment.service';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 
 const appRoutes: Routes = [
@@ -18,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'blogs', component: BlogsComponent },
   { path: 'banner', component: BannerComponent },
   { path: 'featured', component: FeaturedComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: '**', component: LoginComponent }
 ];
 
@@ -29,14 +33,15 @@ const appRoutes: Routes = [
     BannerComponent,
     FeaturedComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [],
+  providers: [SaveUserDataService, UpdateUserEnvironmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

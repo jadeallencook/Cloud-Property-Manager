@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { SaveUserDataService } from '../../services/save-user-data.service';
 
 @Component({
   selector: 'app-settings',
@@ -20,6 +21,8 @@ export class SettingsComponent implements OnInit {
   }
 
   save() {
+    environment.user.links = this.links;
+    new SaveUserDataService;
   }
 
   ngOnInit() {
